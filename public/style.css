@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+}
+#bg {
+    background: url(intro_bg.jpg) center/ cover no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+#bg:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: rgba(0,0,0,.4);
+}
+#formulario {
+    display: block;
+    position: relative;
+    z-index: 5;
+    background: #FFF;
+}
+#listo, #fail {
+    overflow: hidden;
+    height: 0;
+    padding: 0 1.25rem;
+    opacity: 0;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    transition: all ease .3s;
+}
