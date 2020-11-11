@@ -2,6 +2,6 @@ const routes = require('express').Router();
 const ctrl = require('../controllers/calcular.controller');
 routes
     .get('/', (req, res) => { res.render('pages/home') })
-    .post('/send', ctrl.send)
+    .post('/calcular', ctrl.calcular)
 
 module.exports = routes;

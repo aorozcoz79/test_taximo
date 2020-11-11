@@ -6,15 +6,18 @@ const bodyParser = require('body-parser');
 const http = require('http').createServer(app);
 const port = process.env.PORT || 1218;
 
+// MIDDLEWARES
 app.use(express.json());
 
 //RUTAS
 app.use('/', require('./routes/calcular.routes'));
+
 //CONFIG
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 
+// VIEWS
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
