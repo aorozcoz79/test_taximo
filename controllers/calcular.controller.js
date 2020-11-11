@@ -11,7 +11,7 @@ const control = {
             console.log(datos);
             const rspFind = await control.getByFind(datos)
             if(rspFind) {
-                console.log('Resultado Find');
+                console.log('Registro ya Existe en la BD');
                 return res.send({status:true, message: 'La solicitud realizada ya existe en BD este es el resultado', data: {'minimum_time': rspFind.minimum_time } })
             }
             const rspCalcular = await control.minimum_time(datos)
