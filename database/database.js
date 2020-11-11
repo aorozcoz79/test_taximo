@@ -4,7 +4,7 @@ const sequelize = new Sequelize(
     'test_taximo',
     'taximo_pg',
     '123456',
-    {
+    {        
         host: '35.238.242.156',
         dialect: 'postgres',
         pool: {
