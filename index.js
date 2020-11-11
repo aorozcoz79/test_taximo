@@ -1,5 +1,6 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+const { authToken } = require('./middlewares/auth');
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
@@ -8,9 +9,10 @@ const port = process.env.PORT || 1218;
 
 // MIDDLEWARES
 app.use(express.json());
+//RUTAS DE PAGINA HOME
+app.use('/', require('./routes/pagina.routes'));
 
-//RUTAS
-app.use('/', require('./routes/calcular.routes'));
+
 
 //CONFIG
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,6 +27,11 @@ app.engine('.hbs', exphbs({
 }));
 
 app.set('view engine', '.hbs');
+
+//RUTAS API
+app.use([authToken]);
+app.use('/api/v1/', require('./routes/calcular.routes'));
+
 
 http.listen(port, () => {
     console.log(`Servicio HTTP iniciado - puerto : ${port}`);
