@@ -51,13 +51,10 @@ const control = {
 
             // crea un array de datos de los parametros
             let parameters2 = parameters.split(',')
-            console.log(parameters2);
             // crea un array de datos de los centros comerciales
             shoping_centers2 = shoping_centers.split('-')
-            console.log(shoping_centers2);
             // crea un array de datos de los carreteras
             roads2 = roads.split('-')
-            console.log(roads2);
 
 
             let n, m, k ;
@@ -65,7 +62,6 @@ const control = {
             n = parameters2[0]
             m = parameters2[1]
             k = parameters2[2]
-            console.log(n, m, k);
 
             // Restricciones
             if (2 > n && n > 1000) {
@@ -85,6 +81,7 @@ const control = {
             var aleatorio =  Math.round((Math.random()*100)/10)*10;
             console.log(aleatorio);
             datos.minimum_time = aleatorio
+           
             return await control.create(datos)
         } catch (e) {
             

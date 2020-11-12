@@ -3,25 +3,30 @@
     style="display: block;max-width: 500px;padding: 20px; margin: 50px auto;box-shadow: 0 0 5px #999; border-radius:  7px;">
     <img src="logo.png" alt="Infinitum sic-tech" style="display: block; width: 100px; margin: 10px auto;">
     <div class="form-group">
-        <label for="parameters">parameters</label>
+        <label for="parameters">Parametros</label>
         <input type="text" class="form-control" id="parameters" required aria-describedby="parameters"
             placeholder="Parametros">
         <small id="parameters" class="form-text text-muted">Por favor ingrese sus Parametros
-            correctamente.</small>
+            ejemplo (5,5,5).</small>
     </div>
     <div class="form-group">
-        <label for="shoping_centers">shoping_centers</label>
+        <label for="shoping_centers">Centros Comerciales</label>
         <input type="text" class="form-control" id="shoping_centers" required aria-describedby="shoping_centers"
             placeholder="Centros Comerciales">
-        <small id="shoping_centers" class="form-text text-muted">Por favor ingrese sus Centros Comerciales
-            correctamente.</small>
+        <small id="shoping_centers" class="form-text text-muted">Por favor ingrese los datos de los Centros Comerciales
+            ejemplo (1,1-1,2-1,3).</small>
     </div>
     <div class="form-group">
-        <label for="roads">roads</label>
+        <label for="roads">Carreteras</label>
         <input type="text" class="form-control" id="roads" required aria-describedby="roads"
             placeholder="Carreteras">
-        <small id="roads" class="form-text text-muted">Por favor ingrese sus Carreteras
-            correctamente.</small>
+        <small id="roads" class="form-text text-muted">Por favor ingrese las Carreteras
+            ejemplo (1,2,10-1,3,10).</small>
+    </div>
+    <div class="form-group">
+        <label for="username">Usuario</label>
+        <input type="text" class="form-control" id="username" value="taximo_api_user" required aria-describedby="username"
+            placeholder="Usuario">
     </div>
     <button type="submit" class="btn btn-primary">Enviar</button>
     <div class="alert alert-success" id="listo" role="alert">Guardado</div>
@@ -37,10 +42,13 @@
             "shoping_centers": document.getElementById('shoping_centers').value,
             "roads": document.getElementById('roads').value
         }
+        var user = {
+            username: document.getElementById('username').value
+        }
         $.ajax({ url: '/api/v1/synchronous_shopping',          
                 method: 'POST',
                 contentType: 'application/json',
-                headers: {username: 'taximo_api_user'},
+                headers: user,
                 dataType: 'json',
                 data: JSON.stringify(datosJson), 
             success: function (res) {
